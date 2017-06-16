@@ -39,7 +39,7 @@ node {
 }
 
 private void skipStep() {
-    echo "Skipped because not master branch"
+    echo "Skipped because not master branchB
 }
 
 private String getNewVersion() {
