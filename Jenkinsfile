@@ -10,6 +10,12 @@ node {
     stage('Report server tests results') {
         junit 'server/target/surefire-reports/TEST-*.xml, target/failsafe-reports/TEST-*.xml'
     }
+    stage('Test and build web content') {
+        sh "cd client"
+        //sh "ng test"
+        sh "ng build"
+        sh "cd .."
+    }
     stage('Build and push docker image') {
         if (env.BRANCH_NAME == 'master') {
             wrap([$class: 'ConfigFileBuildWrapper',
