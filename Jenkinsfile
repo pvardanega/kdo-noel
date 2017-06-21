@@ -8,7 +8,7 @@ node {
         sh "mvn --batch-mode clean package"
     }
     stage('Report server tests results') {
-        junit 'server/target/surefire-reports/TEST-*.xml, target/failsafe-reports/TEST-*.xml'
+        junit 'target/surefire-reports/TEST-*.xml, target/failsafe-reports/TEST-*.xml'
     }
     stage('Build and push docker image') {
         if (env.BRANCH_NAME == 'master') {
@@ -17,7 +17,7 @@ node {
                                   variable: 'MAVEN_SETTINGS']]]
             ) {
                 sh "mvn --batch-mode versions:set -DnewVersion='${getNewVersion()}' -DgenerateBackupPoms=false"
-                sh "mvn -f server/pom.xml --batch-mode docker:build --settings ${env.MAVEN_SETTINGS}"
+                sh "mvn --batch-mode docker:build --settings ${env.MAVEN_SETTINGS}"
             }
         } else {
             skipStep()
@@ -33,7 +33,7 @@ node {
 }
 
 private void skipStep() {
-    echo "Skipped because not master branchB
+    echo "Skipped because not master branch"
 }
 
 private String getNewVersion() {

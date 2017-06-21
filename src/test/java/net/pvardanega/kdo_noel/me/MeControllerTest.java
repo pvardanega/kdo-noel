@@ -1,4 +1,4 @@
-package net.pvardanega.kdo_noel;
+package net.pvardanega.kdo_noel.me;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,16 +14,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
-public class HelloControllerTest {
+public class MeControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @Test
-    public void should_call_hello_endpoint_and_return_hello_string() throws Exception {
-        mvc.perform(get("/hello")
+    public void should_get_principal() throws Exception {
+        mvc.perform(get("/me")
             .accept(APPLICATION_JSON_UTF8_VALUE))
             .andExpect(status().isOk())
-            .andExpect(jsonPath("message").value("Hello you!"));
+            .andExpect(jsonPath("firstName").value("Pierre-Jean"))
+            .andExpect(jsonPath("lastName").value("Vardanéga"));
     }
 }
