@@ -1,3 +1,25 @@
 .toolbar-spacer {
   flex: 1 1 auto;
 }
+
+.mat-sidenav-container {
+  height: 100%;
+}
+
+.sidenav-toggle {
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+.sidenav {
+  padding: 20px;
+}
+
+.app-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}

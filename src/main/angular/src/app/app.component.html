@@ -1,7 +1,26 @@
-<md-toolbar color="primary">
-  <span>Kdo Noël</span>
-  <!--<span class="toolbar-spacer"></span>-->
-  <!--<md-icon>face</md-icon>-->
-</md-toolbar>
-<router-outlet></router-outlet>
-
+<md-sidenav-container>
+  <md-sidenav #sidenav class="sidenav" color="primary" mode="side" opened="false">
+    <div>
+      <md-icon>face</md-icon> Pierre-Jean Vardanega
+    </div>
+    <ul>
+      <li>menu 1</li>
+      <li>menu 2</li>
+      <li>menu 3</li>
+    </ul>
+  </md-sidenav>
+  <div>
+    <md-toolbar color="primary">
+      <button class="sidenav-toggle" (click)="sidenav.toggle()">
+        <md-icon>menu</md-icon>
+      </button>
+      <span>Kdo Noël</span>
+      <!--<span class="toolbar-spacer"></span>
+      <md-icon>face</md-icon>-->
+    </md-toolbar>
+    <div class="app-content">
+      Content:
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</md-sidenav-container>
