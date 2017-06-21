@@ -5,6 +5,7 @@
 **/tmp
 **/out-tsc
 **/target
+src/main/resources/static/
 
 # dependencies
 **/node_modules
@@ -34,7 +35,7 @@
 npm-debug.log
 testem.log
 /typings
-client/package-lock.json
+server/src/main/angular/package-lock.json
 
 # e2e
 **/e2e/*.js
