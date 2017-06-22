@@ -3,6 +3,7 @@ import { NgModule }         from '@angular/core';
 import { MdToolbarModule }  from '@angular/material';
 import { MdIconModule }     from '@angular/material';
 import { MdSidenavModule }  from '@angular/material';
+import { MdButtonModule }   from '@angular/material';
 import { HttpModule }       from '@angular/http';
 import { RouterModule }     from '@angular/router';
 
@@ -18,6 +19,7 @@ import { PrincipalService } from './principal/principal.service';
     MdToolbarModule,
     MdIconModule,
     MdSidenavModule,
+    MdButtonModule,
     HttpModule,
     RouterModule.forRoot([])
   ],

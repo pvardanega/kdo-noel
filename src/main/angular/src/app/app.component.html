@@ -1,5 +1,5 @@
 <md-sidenav-container>
-  <md-sidenav #sidenav class="sidenav" color="primary" mode="side" opened="false">
+  <md-sidenav #sidenav class="sidenav" mode="side" opened="false">
     <div>
       <md-icon>face</md-icon> {{ me }}
     </div>
@@ -11,17 +11,15 @@
   </md-sidenav>
   <div>
     <md-toolbar color="primary">
-      <button class="sidenav-toggle" (click)="sidenav.toggle()">
+      <a md-icon-button (click)="sidenav.toggle()">
         <md-icon *ngIf="!sidenav.opened">menu</md-icon>
         <md-icon *ngIf="sidenav.opened">arrow_back</md-icon>
-      </button>
-      <span>Kdo Noël</span>
-      <!--<span class="toolbar-spacer"></span>
-      <md-icon>face</md-icon>-->
+      </a>
+      <span class="toolbar-title">Kdo Noël</span>
     </md-toolbar>
     <div class="app-content">
       Content:
-      <router-outlet></router-outlet>
+      <router-outlet  color="primary"></router-outlet>
     </div>
   </div>
 </md-sidenav-container>
