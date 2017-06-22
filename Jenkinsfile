@@ -5,7 +5,7 @@ node {
         checkout scm
     }
     stage('Compile, build and test server') {
-        sh "mvn --batch-mode clean package"
+        sh "mvn --batch-mode clean package -Denvironment=prod"
     }
     stage('Report server tests results') {
         junit 'target/surefire-reports/TEST-*.xml, target/failsafe-reports/TEST-*.xml'

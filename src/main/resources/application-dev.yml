@@ -1,0 +1,7 @@
+spring:
+  profiles:
+    include: common
+  datasource:
+    url: jdbc:postgresql://localhost:5432/kdo_noel
+    username: kdo_noel
+    password: kdo_noel

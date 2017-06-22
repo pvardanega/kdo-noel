@@ -1,24 +1,24 @@
 import { Component, OnInit }  from '@angular/core';
 import { Response }           from "@angular/http";
 
-import { PrincipalService }   from './principal/principal.service';
+import { PrincipalService }   from "../principal.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.css']
 })
-export class AppComponent implements OnInit {
-  me: String = '';
+export class ListComponent implements OnInit {
+  envies = [];
 
   constructor(private principalService: PrincipalService) {}
 
   ngOnInit() {
-    this.principalService.me()
+    this.principalService.myList()
       .subscribe(
         (response: Response) => {
           let json = response.json();
-          this.me = json.firstName + " " + json.lastName;
+          this.envies = json.envies;
         },
         (error: Error) => {
           console.error(error);

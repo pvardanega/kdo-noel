@@ -1,0 +1,21 @@
+<div *ngIf="envies.length == 0">
+  <p>Pas d'envie pour le moment ? :(</p>
+</div>
+<div class="card-container">
+  <md-card *ngFor="let envy of envies" class="envy-card">
+    <md-card-header>
+      <!-- example: https://material.angular.io/components/card/examples -->
+      <!--<div md-card-avatar class="example-header-image"></div>-->
+      <md-card-title>{{ envy.title }}</md-card-title>
+      <md-card-subtitle>{{ envy.subtitle }}</md-card-subtitle>
+    </md-card-header>
+    <img md-card-image src="{{ envy.imageUrl }}">
+    <md-card-content>
+      <p>{{ envy.content }}</p>
+    </md-card-content>
+    <!--<md-card-actions>-->
+      <!--<button md-button>LIKE</button>-->
+      <!--<button md-button>SHARE</button>-->
+    <!--</md-card-actions>-->
+  </md-card>
+</div>

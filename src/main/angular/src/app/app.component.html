@@ -3,11 +3,9 @@
     <div>
       <md-icon>face</md-icon> {{ me }}
     </div>
-    <ul>
-      <li>menu 1</li>
-      <li>menu 2</li>
-      <li>menu 3</li>
-    </ul>
+    <md-nav-list>
+      <a md-list-item routerLink="/my-list">Ma liste d'envies</a>
+    </md-nav-list>
   </md-sidenav>
   <div>
     <md-toolbar color="primary">
@@ -18,8 +16,7 @@
       <span class="toolbar-title">Kdo Noël</span>
     </md-toolbar>
     <div class="app-content">
-      Content:
-      <router-outlet  color="primary"></router-outlet>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </md-sidenav-container>

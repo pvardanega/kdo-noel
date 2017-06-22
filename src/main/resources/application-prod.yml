@@ -1,2 +1,5 @@
-cors:
-  origins: 'https://kdo-noel.pvardanega.net'
+spring:
+  profiles:
+    include: common
+  datasource:
+    url: jdbc:postgresql://postgres/kdo_noel

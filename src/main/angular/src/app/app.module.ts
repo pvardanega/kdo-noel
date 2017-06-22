@@ -5,14 +5,18 @@ import { MdIconModule }     from '@angular/material';
 import { MdSidenavModule }  from '@angular/material';
 import { MdButtonModule }   from '@angular/material';
 import { HttpModule }       from '@angular/http';
-import { RouterModule }     from '@angular/router';
+import { MdListModule }     from '@angular/material';
+import { MdCardModule }     from '@angular/material';
 
 import { AppComponent }     from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ListComponent }    from './principal/list/list.component';
 import { PrincipalService } from './principal/principal.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +25,9 @@ import { PrincipalService } from './principal/principal.service';
     MdSidenavModule,
     MdButtonModule,
     HttpModule,
-    RouterModule.forRoot([])
+    MdListModule,
+    MdCardModule,
+    AppRoutingModule
   ],
   providers: [
     PrincipalService
