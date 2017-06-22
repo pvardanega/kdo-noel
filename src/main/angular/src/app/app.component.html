@@ -12,7 +12,8 @@
   <div>
     <md-toolbar color="primary">
       <button class="sidenav-toggle" (click)="sidenav.toggle()">
-        <md-icon>menu</md-icon>
+        <md-icon *ngIf="!sidenav.opened">menu</md-icon>
+        <md-icon *ngIf="sidenav.opened">arrow_back</md-icon>
       </button>
       <span>Kdo Noël</span>
       <!--<span class="toolbar-spacer"></span>
