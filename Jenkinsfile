@@ -10,6 +10,14 @@ node {
     stage('Report server tests results') {
         junit 'target/surefire-reports/TEST-*.xml, target/failsafe-reports/TEST-*.xml'
     }
+    stage('Tag sources') {
+        if (env.BRANCH_NAME == 'master') {
+            sh "git tag ${getNewVersion()}"
+            sh "git push origin HEAD:${env.BRANCH_NAME} --tags"
+        } else {
+            skipStep()
+        }
+    }
     stage('Build and push docker image') {
         if (env.BRANCH_NAME == 'master') {
             wrap([$class: 'ConfigFileBuildWrapper',
