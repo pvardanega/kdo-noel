@@ -6,4 +6,3 @@ jdk:
 
 script:
   - mvn --batch-mode clean package -Denvironment=prod
- 
