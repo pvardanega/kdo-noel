@@ -1,0 +1,13 @@
+language: java
+services: docker
+sudo: required
+
+jdk:
+  - oraclejdk8
+
+install:
+  - docker run --rm --privileged multiarch/qemu-user-static:register
+
+script:
+  - mvn --batch-mode clean package -Denvironment=prod
+ 
