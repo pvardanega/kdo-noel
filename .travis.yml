@@ -1,8 +1,24 @@
 language: java
+services: docker
 sudo: required
+
+env:
+  - DATE=$(date +"%Y-%m-%d")
 
 jdk:
   - oraclejdk8
 
-script:
-  - mvn --batch-mode clean package -Denvironment=prod
+before_install:
+  - docker run --rm --privileged multiarch/qemu-user-static:register
+  - npm install -g @angular/cli
+
+jobs:
+  include:
+    - stage: build & test sources
+      script: mvn --batch-mode clean package -Denvironment=prod
+    - stage: build & deploy docker image
+      script:
+        - cp .travis.settings.xml $HOME/.m2/settings.xml
+        - mvn --batch-mode versions:set -DnewVersion=${DATE}-b"$TRAVIS_JOB_ID" -DgenerateBackupPoms=false
+        - mvn --batch-mode docker:build
+      if: branch = master

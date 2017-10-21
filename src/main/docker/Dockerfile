@@ -1,5 +1,6 @@
 FROM hypriot/rpi-java
 
+ADD qemu-arm-static /usr/bin
 ADD kdo-noel.jar /data/app.jar
 
 EXPOSE 8080
